@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
+import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -74,20 +75,7 @@ TEMPLATES = [
     },
 ]
 
-
-
 WSGI_APPLICATION = 'simplemooc.wsgi.application'
-
-
-# Database
-# https://docs.djangoproject.com/en/2.0/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
 
 
 # Password validation
@@ -148,5 +136,29 @@ EMAIL_HOST_USER = 'rafael.rbnet@gmail.com'
 EMAIL_HOST_PASSWORD = 'DnkrozGoogle'
 EMAIL_PORT = 587
 
-CONTACT_EMAIL = 'rafael.rbnet@gmail.com' 
+CONTACT_EMAIL = 'rafael.rbnet@gmail.com'
+
+# Heroku settings
+DATABASES = {
+    'default':  dj_database_url.config(),
+}
+
+# Honor the 'X-Forwarded-Proto' header for request.is_secure()
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+# Allow all host headers
+ALLOWED_HOSTS = ['*', '.herokuapp.com']
+
+STATIC_ROOT = 'staticfiles'
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+
+try:
+    from simplemooc.local_settings import *
+except ImportError:
+    pass
+
 
