@@ -146,16 +146,16 @@ DATABASES = {
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Allow all host headers
-ALLOWED_HOSTS = ['callflexlms.herokuapp.com'] 
+ALLOWED_HOSTS = ['.herokuapp.com', '*', 'callflexlms.herokuapp.com']
 
 STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/static/'
 
-STATIC_FILES_DIR = (
-    os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
 )
 
-try:
+'''try:
     from simplemooc.local_settings import *
 except ImportError:
-    pass
+    pass'''
