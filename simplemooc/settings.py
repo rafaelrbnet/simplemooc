@@ -23,8 +23,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'ksb34#qkk(77bw2wz44aqyy5lx7latujk8z-0)h*f%4kb3dv00'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-TEMPLATE_DEBUG = False
+DEBUG = True
+
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'testserver']
+
 
 # Application definition
 
@@ -72,7 +74,20 @@ TEMPLATES = [
     },
 ]
 
+
+
 WSGI_APPLICATION = 'simplemooc.wsgi.application'
+
+
+# Database
+# https://docs.djangoproject.com/en/2.0/ref/settings/#databases
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
 
 
 # Password validation
@@ -111,7 +126,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'simplemooc', 'media')
+STATIC_URL = '/static/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'simplemooc','media')
 MEDIA_URL = '/media/'
 
 # Auth
@@ -132,30 +148,5 @@ EMAIL_HOST_USER = 'rafael.rbnet@gmail.com'
 EMAIL_HOST_PASSWORD = 'DnkrozGoogle'
 EMAIL_PORT = 587
 
-CONTACT_EMAIL = 'rafael.rbnet@gmail.com'
+CONTACT_EMAIL = 'rafael.rbnet@gmail.com' 
 
-# Heroku settings
-
-import dj_database_url
-
-DATABASES = {
-    'default':  dj_database_url.config(),
-}
-
-# Honor the 'X-Forwarded-Proto' header for request.is_secure()
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-
-# Allow all host headers
-ALLOWED_HOSTS = ['callflexlms.herokuapp.com']
-
-STATIC_ROOT = 'staticfiles'
-STATIC_URL = '/static/'
-
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
-
-'''try:
-    from simplemooc.local_settings import *
-except ImportError:
-    pass'''
