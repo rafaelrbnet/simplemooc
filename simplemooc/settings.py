@@ -135,7 +135,7 @@ CONTACT_EMAIL = 'rafael.rbnet@gmail.com'
 
 # Heroku settings
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 DATABASES = {
     'default':  dj_database_url.config(),
