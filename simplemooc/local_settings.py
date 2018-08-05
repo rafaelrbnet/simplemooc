@@ -1,12 +1,11 @@
-DEBUG = True
+import os
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
+DEBUG = True
 TEMPLATE_DEBUG = True
 
 # Allow all host headers
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'testserver']
-
-import os
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 DATABASES = {
     'default': {
