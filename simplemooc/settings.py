@@ -167,6 +167,6 @@ STATICFILES_DIRS = (
 )
 
 try:
-    from simplemooc.local_settings import *
+    from simplemooc.teste_settings import *
 except ImportError:
     pass
