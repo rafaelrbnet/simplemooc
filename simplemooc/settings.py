@@ -23,12 +23,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'ksb34#qkk(77bw2wz44aqyy5lx7latujk8z-0)h*f%4kb3dv00'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'testserver']
-
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -140,6 +134,11 @@ EMAIL_PORT = 587
 CONTACT_EMAIL = 'rafael.rbnet@gmail.com'
 
 # Heroku settings
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = False
+
+ALLOWED_HOSTS = ['*.herokuapp.com', 'localhost']
+
 DATABASES = {
     'default':  dj_database_url.config(),
 }
