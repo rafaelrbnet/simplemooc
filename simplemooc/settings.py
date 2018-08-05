@@ -137,7 +137,7 @@ CONTACT_EMAIL = 'rafael.rbnet@gmail.com'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['*']
 
 DATABASES = {
     'default':  dj_database_url.config(),
